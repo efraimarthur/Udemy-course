@@ -1,4 +1,5 @@
 import Head from "next/head";
+import CounterExample from "../components/CounterExample";
 import HelloWorld from "../components/HelloWorld";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <main>
         <div>
           <HelloWorld name="Arthur" />
+          <CounterExample />
         </div>
       </main>
     </div>
