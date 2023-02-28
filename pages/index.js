@@ -1,6 +1,8 @@
 import Head from "next/head";
-import CounterExample from "../components/CounterExample";
+// import CounterExample from "../components/CounterExample";
 import HelloWorld from "../components/HelloWorld";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Home() {
   return (
@@ -11,12 +13,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
+      <main className="min-h-screen">
         <div>
+          <Header />
           <HelloWorld name="Arthur" />
-          <CounterExample />
+          {/* <CounterExample /> */}
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 }
