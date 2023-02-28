@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import { useTransition, animated } from "react-spring";
+import NavMenu from "./NavMenu";
 
-const Navigtaion = ({ data = [1, 2, 3] }) => {
+const Navigtaion = () => {
   const [showMenu, setShowMenu] = useState(false);
   const menuTransition = useTransition(showMenu, {
     from: { opacity: 0, x: -100 },
@@ -32,10 +33,7 @@ const Navigtaion = ({ data = [1, 2, 3] }) => {
               style={style}
               className="z-50 fixed bg-white top-0 left-0 h-full w-4/5 p-3"
             >
-              <span className="font-bold text-xl">This is Menu</span>
-              <ul>
-                <li>Home</li>
-              </ul>
+              <NavMenu closeMenu={() => setShowMenu(false)} />
             </animated.div>
           )
       )}
