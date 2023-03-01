@@ -1,7 +1,17 @@
+/* eslint-disable react/jsx-key */
 import Head from "next/head";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import Loader from "../components/Loader";
+import ProductCard from "../components/ProductCard";
+import CustomFetcher from "../components/CustomFetcher";
 // import CounterExample from "../components/CounterExample";
 
 export default function Home() {
+  const url =
+    "https://63fe98d1571200b7b7ccdbc5.mockapi.io/products?page=1&limit=10";
+  const [products] = CustomFetcher(url);
+
   return (
     <div>
       <Head>
@@ -12,9 +22,21 @@ export default function Home() {
 
       <main className="min-h-screen">
         <div>
-          {/* <Header /> */}
-          {/* <CounterExample /> */}
-          Home page
+          <span className="font-semibold text-2xl">Product List </span>
+
+          <div className="mt-3">
+            {products?.data ? (
+              products.data.map((product, index) => (
+                <div key={index}>
+                  <ProductCard product={product} />
+                </div>
+              ))
+            ) : (
+              <div>
+                <Loader />
+              </div>
+            )}
+          </div>
         </div>
       </main>
     </div>

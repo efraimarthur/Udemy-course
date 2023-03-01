@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Header />
-      <div className="min-h-screen p-3">
+      <div className="min-h-screen p-3 bg-orange-100">
         {/* <HelloWorld name="Arthur" /> */}
 
         <Component {...pageProps} />

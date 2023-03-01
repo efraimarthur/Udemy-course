@@ -1,42 +1,24 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Loader from "../../components/Loader";
+import Image from "next/image";
+import CustomFetcher from "../../components/CustomFetcher";
 
 const Products = () => {
-  const [product, setProduct] = useState({
-    loading: false,
-    data: null,
-  });
-
   const router = useRouter();
   const { pid } = router.query;
 
-  const getProduct = async () => {
-    setProduct({
-      loading: true,
-      data: null,
-    });
-    try {
-      const data = await axios.get(
-        `https://63fe98d1571200b7b7ccdbc5.mockapi.io/products/${pid}`
-      );
-      const response = data;
-      setProduct({
-        loading: false,
-        data: response.data,
-      });
-    } catch (error) {}
-  };
+  let url = `https://63fe98d1571200b7b7ccdbc5.mockapi.io/products/${pid}`;
+  const [product] = CustomFetcher(url);
 
-  useEffect(() => {
-    getProduct();
-  }, [pid]);
+  // useEffect(() => {}, [pid]);
 
   return (
     <>
       {product.data ? (
-        <div>
+        <div className="pb-20">
           <h1 className="text-2xl font-bold mb-3">{product.data.name}</h1>
           <div>
             <img src={product.data.images} alt={product.data.name} />

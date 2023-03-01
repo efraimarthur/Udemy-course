@@ -31,7 +31,7 @@ const Navigtaion = () => {
           item && (
             <animated.div
               style={style}
-              className="z-50 fixed bg-white top-0 left-0 h-full w-4/5 p-3"
+              className="z-50 fixed bg-gray-800 text-white top-0 left-0 h-full w-4/5 p-3"
             >
               <NavMenu closeMenu={() => setShowMenu(false)} />
             </animated.div>
