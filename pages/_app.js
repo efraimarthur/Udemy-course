@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
     <>
       <Header />
       <div className="min-h-screen p-3">
-        <HelloWorld name="Arthur" />
+        {/* <HelloWorld name="Arthur" /> */}
 
         <Component {...pageProps} />
       </div>
